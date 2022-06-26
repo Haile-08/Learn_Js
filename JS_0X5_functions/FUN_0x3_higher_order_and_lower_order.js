@@ -28,7 +28,7 @@ account(c);
 //first class fuctions
 // are just functions that are values and are of typeof object
 
-const g = () => "hi";
+const ga = () => "hi";
 
 //higher-order function
 // are function that recive a fucntion as an argument that returns another funtion
