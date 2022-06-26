@@ -12,3 +12,15 @@ function count() {
     c++;
   };
 }
+
+//accepting another function
+const c = function () {
+  let x = "haile";
+  return x;
+};
+
+const account = function (fun) {
+  console.log(`${fun}`);
+};
+
+account(c);
