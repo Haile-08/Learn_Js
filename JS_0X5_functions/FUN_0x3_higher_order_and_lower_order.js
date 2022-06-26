@@ -24,3 +24,13 @@ const account = function (fun) {
 };
 
 account(c);
+
+//first class fuctions
+// are just functions that are values and are of typeof object
+
+const g = () => "hi";
+
+//higher-order function
+// are function that recive a fucntion as an argument that returns another funtion
+
+const hof = (g) => console.log(`namf${g}`);
