@@ -9,3 +9,4 @@ const greet = function (greeting) {
 
 const greethey = greet("hey");
 console.log(greethey("haile"));
+greet("hello")("haile");
