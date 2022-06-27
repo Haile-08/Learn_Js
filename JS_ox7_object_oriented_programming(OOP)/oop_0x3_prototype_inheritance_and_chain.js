@@ -1,5 +1,6 @@
 //function constructor
 //arrow fun dont work cuz it doesnt have a this keyword
+//construcotr function
 const Person = function (firstname, birthyear) {
   console.log(this);
   this.firstname = firstname;
