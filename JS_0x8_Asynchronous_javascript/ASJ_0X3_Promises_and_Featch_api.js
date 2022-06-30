@@ -33,3 +33,35 @@ const getinfo = function (c) {
 };
 
 getinfo("sudan");
+
+// Chaining a Promises
+// is a way of handling a returned promise that is retruned from a then function
+
+const getinfoo = function (cu) {
+  fetch(`https://restcountries.com/v3.1/name/${cu}`)
+    .then((re) => re.json())
+    .then((da) => {
+      console.log(da);
+      const ne = da[0].borders[0];
+      return fetch(`https://restcountries.com/v3.1/name/${ne}`);
+    })
+    .then((res) => res.json())
+    .then((dat) => console.log(dat));
+};
+
+// what not to do
+//if u do this u will end up in callback hell
+//************************************** */
+// const getinfoo = function (cu) {
+//     fetch(`https://restcountries.com/v3.1/name/${cu}`)
+//       .then((re) => re.json())
+//       .then((da) => {
+//         console.log(da);
+//         const ne = da[0].borders[0];
+//##################################################################################33333333
+// dont attch then to the fetch inside this function
+//         return fetch(`https://restcountries.com/v3.1/name/${ne}`);
+//       })
+//       .then((res) => res.json())
+//       .then((dat) => console.log(dat));
+//   };
