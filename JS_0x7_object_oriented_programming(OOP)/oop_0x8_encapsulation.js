@@ -34,3 +34,6 @@ class Person {
   }
   //they can get the fullname but not edit it
 }
+
+
+//see encapsualtion really well
