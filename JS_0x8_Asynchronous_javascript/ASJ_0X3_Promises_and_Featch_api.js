@@ -65,3 +65,39 @@ const getinfoo = function (cu) {
 //       .then((res) => res.json())
 //       .then((dat) => console.log(dat));
 //   };
+
+//Handling Rejection
+//handling error loacaly
+
+// const getinfoos = function (cut) {
+//   fetch(`https://restcountries.com/v3.1/name/${cut}`)
+//     .then(
+//       (res) => res.json(),
+//       //to handel an error
+//       (err) => console.log(err)
+//     )
+//     .then((dat) => {
+//       console.log(dat);
+//       const neg = dat[0].borders[0];
+//       return fetch(`https://restcountries.com/v3.1/name/${neg}`);
+//     })
+//     .then(
+//       (res) => res.json(),
+//       (err) => console.log(err)
+//     )
+//     .then((dat) => console.log(dat));
+// };
+
+//to handel error globaly
+const getinfoos = function (cut) {
+  fetch(`https://restcountries.com/v3.1/name/${cut}`)
+    .then((res) => res.json())
+    .then((dat) => {
+      console.log(dat);
+      const neg = dat[0].borders[0];
+      return fetch(`https://restcountries.com/v3.1/name/${neg}`);
+    })
+    .then((res) => res.json())
+    .then((dat) => console.log(dat))
+    .catch((err) => alert(err));
+};
