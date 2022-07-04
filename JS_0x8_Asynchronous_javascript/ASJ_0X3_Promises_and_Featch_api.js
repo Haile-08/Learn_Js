@@ -89,6 +89,21 @@ const getinfoo = function (cu) {
 // };
 
 //to handel error globaly
+// const getinfoos = function (cut) {
+//   fetch(`https://restcountries.com/v3.1/name/${cut}`)
+//     .then((res) => res.json())
+//     .then((dat) => {
+//       console.log(dat);
+//       const neg = dat[0].borders[0];
+//       return fetch(`https://restcountries.com/v3.1/name/${neg}`);
+//     })
+//     .then((res) => res.json())
+//     .then((dat) => console.log(dat))
+//     .catch((err) => alert(err));
+// };
+
+//Throwing errors manually
+
 const getinfoos = function (cut) {
   fetch(`https://restcountries.com/v3.1/name/${cut}`)
     .then((res) => res.json())
@@ -97,7 +112,13 @@ const getinfoos = function (cut) {
       const neg = dat[0].borders[0];
       return fetch(`https://restcountries.com/v3.1/name/${neg}`);
     })
-    .then((res) => res.json())
+    .then((res) => {
+      res.json();
+      //throwing the error
+      if (!res.ok) {
+        throw new Error(`country not found ${res.status}`);
+      }
+    })
     .then((dat) => console.log(dat))
     .catch((err) => alert(err));
 };
