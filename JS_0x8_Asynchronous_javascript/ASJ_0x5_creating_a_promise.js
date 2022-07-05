@@ -11,7 +11,7 @@ const lotto = new Promise(function (resolve, reject) {
   }, 2000);
 });
 // consuming promise
-lotto.then(res => console.log(rse)).catch(err => console.log(err);)
+lotto.then((res) => console.log(rse)).catch((err) => console.log(err));
 
 
 //promisifying setTimeout
